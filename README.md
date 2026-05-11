@@ -1,6 +1,6 @@
 # PHP Technical Support Case System
 
-A PHP fundamentals project that simulates a technical support case/ticketing system inspired by Salesforce Cases and FormAssembly support workflows.
+A PHP fundamentals project that simulates a technical support case/ticketing system inspired by Salesforce Cases and web form support workflows.
 
 ## Project Goal
 

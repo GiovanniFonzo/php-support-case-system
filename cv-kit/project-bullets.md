@@ -2,7 +2,7 @@
 
 ## Project Summary
 
-Built a PHP fundamentals support case management system inspired by Salesforce Cases and FormAssembly support workflows, designed to strengthen backend fundamentals before progressing into Laravel/MVC development.
+Built a PHP fundamentals support case management system inspired by Salesforce Cases and web form support workflows, designed to strengthen backend fundamentals before progressing into Laravel/MVC development.
 
 ## Phase 1 Bullet
 
