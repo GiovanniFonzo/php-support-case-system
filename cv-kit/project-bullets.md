@@ -12,3 +12,8 @@ Built a PHP fundamentals support case management system inspired by Salesforce C
 
 This project connects my technical support experience with backend software engineering by modelling real support case workflows in PHP. It also extends my portfolio architecture by preparing the application to be monitored later through my existing prod-platform monitoring system.
 
+## PHP Technical Support Case System
+
+- Built a plain PHP support case system foundation with a small public entry point, reusable route helper functions, dedicated route handling, placeholder support case routes, a JSON health endpoint, and basic 404 behavior.
+
+

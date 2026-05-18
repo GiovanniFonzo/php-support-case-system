@@ -79,3 +79,15 @@ Expected response:
 
 This project demonstrates PHP fundamentals, backend request handling, support workflow modelling, and preparation for Laravel/MVC development.
 
+## Current Features
+
+- Small public entry point through `public/index.php`
+- Reusable helper functions in `src/helpers.php`
+- Basic route handling through `src/routes.php`
+- Home route at `/`
+- Support cases placeholder route at `/cases`
+- Create case placeholder route at `/cases/create`
+- JSON health check route at `/health`
+- Basic 404 response for unknown routes
+
+

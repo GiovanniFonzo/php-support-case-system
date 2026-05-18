@@ -94,3 +94,73 @@ php -S localhost:8000 -t public
 
 Do not run the server from inside the `public` folder for this project structure.
 
+## Phase 1.2 — Route helper and cleaner route handling
+
+### Goal
+
+Refactored routing so `public/index.php` stays small and route decisions are handled through `src/routes.php`.
+
+### Files changed
+
+- `public/index.php`
+- `src/helpers.php`
+- `src/routes.php`
+
+### Helper functions
+
+```php
+current_path()
+is_route(string $route)
+```
+
+### Routes validated
+
+| Route | Purpose | Result |
+|---|---|---|
+| `/` | Home page | Working |
+| `/cases` | Support cases placeholder | Working |
+| `/cases/create` | Create case placeholder | Working |
+| `/health` | JSON health check | Working |
+| Unknown route | 404 response | Working |
+
+### Validation commands
+
+```bash
+php -S localhost:8000 -t public
+curl http://localhost:8000/
+curl http://localhost:8000/cases
+curl http://localhost:8000/cases/create
+curl http://localhost:8000/health
+curl -i http://localhost:8000/not-real
+```
+
+### Validation result
+
+The app returned the expected HTML responses for `/`, `/cases`, and `/cases/create`.
+
+The `/health` endpoint returned JSON:
+
+```json
+{
+  "service": "php-support-case-system",
+  "status": "ok",
+  "version": "0.1.0",
+  "phase": "phase-1-routing-simulation"
+}
+```
+
+The unknown route returned:
+
+```text
+HTTP/1.1 404 Not Found
+```
+
+### Notes
+
+`public/index.php` now acts only as the application entry point.
+
+`src/helpers.php` contains reusable helper functions for route matching.
+
+`src/routes.php` controls route decisions and responses.
+
+
