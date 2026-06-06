@@ -17,3 +17,6 @@ This project connects my technical support experience with backend software engi
 - Built a plain PHP support case system foundation with a small public entry point, reusable route helper functions, dedicated route handling, placeholder support case routes, a JSON health endpoint, and basic 404 behavior.
 
 
+
+
+- Built a lightweight PHP routing and view structure for a support case system, separating URL routing from page rendering and validating successful routes plus HTTP 404 handling with curl.

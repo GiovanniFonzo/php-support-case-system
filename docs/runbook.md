@@ -164,3 +164,40 @@ HTTP/1.1 404 Not Found
 `src/routes.php` controls route decisions and responses.
 
 
+
+
+## Phase 1.3 Route/View Validation
+
+Run the PHP development server from the project root:
+
+    php -S localhost:8000 -t public
+
+Validate the home route:
+
+    curl http://localhost:8000/
+
+Expected result includes:
+
+    <h1>PHP Support Case System</h1>
+
+Validate the cases route:
+
+    curl http://localhost:8000/cases
+
+Expected result includes:
+
+    <h1>Cases</h1>
+
+Validate an invalid route:
+
+    curl -i http://localhost:8000/random
+
+Expected result includes:
+
+    HTTP/1.1 404 Not Found
+
+The invalid route should load:
+
+    src/views/404.php
+
+This confirms that `src/routes.php` correctly sends known routes to their matching view files and sends unknown routes to the 404 view.

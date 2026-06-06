@@ -91,3 +91,32 @@ This project demonstrates PHP fundamentals, backend request handling, support wo
 - Basic 404 response for unknown routes
 
 
+
+
+## Current Routes
+
+The application currently supports these basic routes:
+
+| Route | View File | Purpose |
+|---|---|---|
+| `/` | `src/views/home.php` | Displays the home page |
+| `/cases` | `src/views/cases-index.php` | Displays the case list placeholder |
+| Any invalid route | `src/views/404.php` | Displays a 404 page and returns HTTP 404 |
+
+## Current Project Structure
+
+    public/index.php
+    src/helpers.php
+    src/routes.php
+    src/views/home.php
+    src/views/cases-index.php
+    src/views/404.php
+    docs/runbook.md
+    storage/
+
+The project now separates routing logic from view rendering:
+
+- `public/index.php` is the front controller.
+- `src/helpers.php` contains helper functions such as `current_path()` and `is_route()`.
+- `src/routes.php` decides which view to load.
+- `src/views/` contains the page templates displayed in the browser.
