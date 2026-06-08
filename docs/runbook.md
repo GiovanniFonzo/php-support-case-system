@@ -201,3 +201,49 @@ The invalid route should load:
     src/views/404.php
 
 This confirms that `src/routes.php` correctly sends known routes to their matching view files and sends unknown routes to the 404 view.
+
+
+## Phase 2 Support Case Model Validation
+
+The support case model is stored at:
+
+    src/models/SupportCase.php
+
+The `/cases` route loads this model and displays sample case data.
+
+Start the PHP development server from the project root:
+
+    php -S localhost:8000 -t public
+
+Validate the cases route:
+
+    curl http://localhost:8000/cases
+
+Expected result includes:
+
+    Case #1:
+    Cannot submit support form
+
+    Case #2:
+    Email notification not received
+
+    Case #3:
+    Request to update account details
+
+Validate that the home route still works:
+
+    curl http://localhost:8000/
+
+Expected result includes:
+
+    <h1>PHP Support Case System</h1>
+
+Validate that invalid routes still return HTTP 404:
+
+    curl -i http://localhost:8000/random
+
+Expected result includes:
+
+    HTTP/1.1 404 Not Found
+
+This confirms that the project can now load model data, pass it to a view, and render multiple support case records.

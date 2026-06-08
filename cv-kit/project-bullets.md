@@ -20,3 +20,6 @@ This project connects my technical support experience with backend software engi
 
 
 - Built a lightweight PHP routing and view structure for a support case system, separating URL routing from page rendering and validating successful routes plus HTTP 404 handling with curl.
+
+
+- Added a basic PHP support case model using associative arrays, connected sample case data to the `/cases` route, and rendered multiple case records safely in a view using `htmlspecialchars()`.

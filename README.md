@@ -120,3 +120,34 @@ The project now separates routing logic from view rendering:
 - `src/helpers.php` contains helper functions such as `current_path()` and `is_route()`.
 - `src/routes.php` decides which view to load.
 - `src/views/` contains the page templates displayed in the browser.
+
+
+## Phase 2: Support Case Data Model
+
+The project now includes a basic support case data model:
+
+    src/models/SupportCase.php
+
+This file currently provides a `sample_cases()` function that returns sample support case records.
+
+Each support case includes:
+
+- `id`
+- `subject`
+- `description`
+- `status`
+- `priority`
+- `created_at`
+
+The `/cases` route now loads the support case model, calls `sample_cases()`, stores the result in `$cases`, and passes that data to the cases index view.
+
+Current data flow:
+
+    User visits /cases
+    src/routes.php loads src/models/SupportCase.php
+    sample_cases() returns sample case data
+    $cases stores the returned data
+    src/views/cases-index.php loops through $cases
+    Browser displays the support case list
+
+The cases view uses `htmlspecialchars()` when displaying case values so that text output is safer for HTML rendering.
