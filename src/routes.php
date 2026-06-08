@@ -6,6 +6,10 @@ if (is_route('/')) {
 }
 
 if (is_route('/cases')) {
+    require_once __DIR__ . '/models/SupportCase.php';
+
+    $cases = sample_cases();
+
     require_once __DIR__ . '/views/cases-index.php';
     exit;
 }
