@@ -1,6 +1,6 @@
 <?php
 
-function sample_cases(): array
+function all_cases(): array
 {
     return [
         [
@@ -30,3 +30,18 @@ function sample_cases(): array
     ];
 }
 
+function sample_cases(): array
+{
+    return all_cases();
+}
+
+function find_case_by_id(int $id): ?array
+{
+    foreach (all_cases() as $case) {
+        if ($case['id'] === $id) {
+            return $case;
+        }
+    }
+
+    return null;
+}
