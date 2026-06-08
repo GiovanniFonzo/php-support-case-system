@@ -23,3 +23,6 @@ This project connects my technical support experience with backend software engi
 
 
 - Added a basic PHP support case model using associative arrays, connected sample case data to the `/cases` route, and rendered multiple case records safely in a view using `htmlspecialchars()`.
+
+
+- Refined the PHP support case model with reusable helpers for listing all cases and finding a single case by ID, preparing the project for future case detail pages and cleaner data access.

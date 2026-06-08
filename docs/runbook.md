@@ -247,3 +247,43 @@ Expected result includes:
     HTTP/1.1 404 Not Found
 
 This confirms that the project can now load model data, pass it to a view, and render multiple support case records.
+
+
+## Phase 2.3 Support Case Lookup Validation
+
+The support case model now supports listing all cases and finding one case by ID.
+
+Validate that the `/cases` route still displays all cases:
+
+    curl http://localhost:8000/cases
+
+Expected result includes:
+
+    Case #1:
+    Cannot submit support form
+
+    Case #2:
+    Email notification not received
+
+    Case #3:
+    Request to update account details
+
+Validate that `find_case_by_id()` can find an existing case:
+
+    php -r "require 'src/models/SupportCase.php'; print_r(find_case_by_id(2));"
+
+Expected result includes:
+
+    [id] => 2
+    [subject] => Email notification not received
+    [status] => In Progress
+
+Validate that `find_case_by_id()` handles a missing case:
+
+    php -r "require 'src/models/SupportCase.php'; var_dump(find_case_by_id(99));"
+
+Expected result:
+
+    NULL
+
+This confirms that the model can now support both list-style pages and future single-case detail pages.

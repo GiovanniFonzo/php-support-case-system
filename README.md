@@ -151,3 +151,26 @@ Current data flow:
     Browser displays the support case list
 
 The cases view uses `htmlspecialchars()` when displaying case values so that text output is safer for HTML rendering.
+
+
+## Phase 2.3: Support Case Lookup Helpers
+
+The support case model now includes clearer helper functions:
+
+    all_cases()
+    sample_cases()
+    find_case_by_id(int $id)
+
+Function responsibilities:
+
+- `all_cases()` returns the full list of support case records.
+- `sample_cases()` remains as a backwards-compatible alias for `all_cases()`.
+- `find_case_by_id(int $id)` searches the case list and returns one matching case, or `null` if no case is found.
+
+The `/cases` route now uses:
+
+    $cases = all_cases();
+
+This makes the route clearer because the cases index page is displaying all available cases.
+
+The `find_case_by_id()` helper prepares the project for future case detail pages, where the application will need to retrieve one specific support case by ID.
