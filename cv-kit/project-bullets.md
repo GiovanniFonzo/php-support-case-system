@@ -26,3 +26,6 @@ This project connects my technical support experience with backend software engi
 
 
 - Refined the PHP support case model with reusable helpers for listing all cases and finding a single case by ID, preparing the project for future case detail pages and cleaner data access.
+
+
+- Built the first create-case workflow in PHP, adding a new case form, POST request handling, required-field validation, preserved form values after errors, and safe confirmation output using `htmlspecialchars()`.

@@ -287,3 +287,58 @@ Expected result:
     NULL
 
 This confirms that the model can now support both list-style pages and future single-case detail pages.
+
+
+## Phase 3 New Case Form Validation
+
+Start the PHP development server from the project root:
+
+    php -S localhost:8000 -t public
+
+Validate that the new case form loads:
+
+    curl http://localhost:8000/cases/new
+
+Expected result includes:
+
+    <h1>Create New Case</h1>
+    <form method="POST" action="/cases">
+
+Validate a partial form submission:
+
+    curl -X POST http://localhost:8000/cases \
+      -d "subject=Login issue"
+
+Expected result includes:
+
+    Description is required.
+    Priority is required.
+
+The submitted subject should be preserved in the form:
+
+    value="Login issue"
+
+Validate a successful form submission:
+
+    curl -X POST http://localhost:8000/cases \
+      -d "subject=Login issue" \
+      -d "description=Customer cannot log in to the support portal" \
+      -d "priority=High"
+
+Expected result includes:
+
+    <h1>Case Submitted</h1>
+    Login issue
+    Customer cannot log in to the support portal
+    High
+
+Validate that the case list still works:
+
+    curl http://localhost:8000/cases
+
+Expected result includes:
+
+    Case #1:
+    Cannot submit support form
+
+This confirms that the app can now display a new case form, receive POST data, validate required fields, preserve submitted values after validation errors, and display a confirmation page for valid submissions.

@@ -174,3 +174,35 @@ The `/cases` route now uses:
 This makes the route clearer because the cases index page is displaying all available cases.
 
 The `find_case_by_id()` helper prepares the project for future case detail pages, where the application will need to retrieve one specific support case by ID.
+
+
+## Phase 3: New Case Form and Validation
+
+The application now includes the first create-case workflow.
+
+New routes and behavior:
+
+    GET /cases/new
+    POST /cases
+
+Responsibilities:
+
+- `GET /cases/new` displays the new support case form.
+- `POST /cases` receives submitted form data.
+- `GET /cases` still displays the existing sample case list.
+
+The new case form collects:
+
+- `subject`
+- `description`
+- `priority`
+
+The POST route now performs basic validation:
+
+- Subject is required.
+- Description is required.
+- Priority is required.
+
+Submitted values are trimmed with `trim()` before validation. If validation fails, the form reloads with error messages and preserves previously entered values. If validation passes, the submitted case data is displayed in `src/views/cases-created.php`.
+
+The case is not saved permanently yet. Persistence will be added in a later phase.
