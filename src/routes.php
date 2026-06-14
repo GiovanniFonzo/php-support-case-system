@@ -12,6 +12,16 @@ if (is_route('/cases/new')) {
 }
 
 
+if (is_route('/cases') && $_SERVER['REQUEST_METHOD'] === 'POST') {
+    $submittedCase = [
+        'subject' => $_POST['subject'] ?? '',
+        'description' => $_POST['description'] ?? '',
+        'priority' => $_POST['priority'] ?? '',
+    ];
+
+    require_once __DIR__ . '/views/cases-created.php';
+    exit;
+}
 
 if (is_route('/cases')) {
     require_once __DIR__ . '/models/SupportCase.php';
@@ -21,6 +31,8 @@ if (is_route('/cases')) {
     require_once __DIR__ . '/views/cases-index.php';
     exit;
 }
+
+
 
 http_response_code(404);
 require_once __DIR__ . '/views/404.php';
