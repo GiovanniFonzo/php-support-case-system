@@ -5,6 +5,14 @@ if (is_route('/')) {
     exit;
 }
 
+
+if (is_route('/cases/new')) {
+    require_once __DIR__ . '/views/cases-new.php';
+    exit;
+}
+
+
+
 if (is_route('/cases')) {
     require_once __DIR__ . '/models/SupportCase.php';
 
